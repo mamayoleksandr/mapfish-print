@@ -51,8 +51,8 @@ public class LabelRenderer {
 			 * "m"=middle, "b"=bottom.
 			 */
 			String labelAlign = style.optString("labelAlign", "cm");
-			float labelXOffset = style.optFloat("labelXOffset", (float) 0.0);
-			float labelYOffset = style.optFloat("labelYOffset", (float) 0.0);
+			float labelXOffset = /*style.optFloat("labelXOffset", (float) 0.0)*/(float) 0.0;
+			float labelYOffset = /*style.optFloat("labelYOffset", (float) 0.0)*/(float) 0.0;
 			String fontColor = style.optString("fontColor", "#000000");
 			/* Supported itext fonts: COURIER, HELVETICA, TIMES_ROMAN */
 			String fontFamily = style.optString("fontFamily", "HELVETICA");
@@ -70,6 +70,7 @@ public class LabelRenderer {
 			Coordinate center = geometry.getCentroid().getCoordinate();
             center = GeometriesRenderer.transformCoordinate(center, affineTransform);
 			float f = context.getStyleFactor();
+            //LOGGER.info("Style Factor:"+f+" Label: "+style.optString("label", "no label"));
 			BaseFont bf = PDFUtils
 					.getBaseFont(fontFamily, fontSize, fontWeight);
 			float fontHeight = (float) Double.parseDouble(fontSize
